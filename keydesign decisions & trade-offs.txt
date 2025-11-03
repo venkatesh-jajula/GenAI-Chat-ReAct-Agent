@@ -1,0 +1,25 @@
+🧩 Key Design Decisions and Trade-offs
+
+1. Use of LangChain ReAct Framework
+Decision: Adopted the ReAct (Reason + Act) framework to allow the model to both reason and take actions through tools.
+Trade-off: More computationally expensive (multiple LLM calls per query) but provides step-by-step interpretability and better reasoning transparency.
+
+2. Modular Tool Architecture
+Decision: Exposed core functionalities as tools (sushi, parking, details) callable by the agent.
+Trade-off: Introduces a small layer of abstraction, but improves modularity, scalability, and code reusability.
+
+3. Custom Memory Integration
+Decision: Manually injected chat_history into the ReAct prompt to enable memory (since create_react_agent() doesn’t support memory by default).
+Trade-off: Slightly more complex prompt management, but allows multi-turn context retention without switching to another agent type.
+
+4. Use of OpenAI GPT-4o-mini
+Decision: Selected GPT-4o-mini as the LLM for its cost-efficiency and good reasoning capability.
+Trade-off: Faster and cheaper for development, but with a smaller context window and slightly reduced accuracy compared to larger GPT-4 models.
+
+5. Streamlit-based Frontend
+Decision: Built a Streamlit UI to demonstrate the project visually.
+Trade-off: Quick to prototype and user-friendly, but not meant for production-scale deployment.
+
+6. Simplicity over Infrastructure
+Decision: Avoided external databases or vector search tools (like FAISS or Pinecone).
+Trade-off: Keeps the prototype lightweight and easy to run locally, but limits semantic search or large-scale data handling.
