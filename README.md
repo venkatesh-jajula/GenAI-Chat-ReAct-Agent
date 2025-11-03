@@ -174,5 +174,7 @@ streamlit
 ✅ Demonstrates reasoning, memory, and tool-based data retrieval  
 
 ---
+## OUTPUT
 ![ChatBMW Streamlit Demo](demo_output.png)
+
 
